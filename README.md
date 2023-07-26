@@ -27,7 +27,28 @@ const getBooks = () => new Promise((resolve, reject) => {
 ```
 - Next I would create a card component to display the book information and a form to intake user input. I like to import components from Bootstrap because they are dynamic and the documentation is thorough.
 - Next I would import the components into the index file.
-- To display the cards, I would list all books, .map through them, and for each book, display the information on the card.
+- To display the cards, I would use useState() to list all books, .map through them, and for each book, display the information on the card, e.g.
+```
+{books.map((book) => (
+//mapping through the results of useState to get all books
+  <section key={`book--${book.id}`} className="books">
+    <BookCard bookObj={book} onUpdate={getAllBooks} />
+    //the book card component accepts a book object
+    //and after a book is deleted, the get all books api call is made again
+  </section>
+))}
+```
 - Each card would have a delete button on it. It would pass its id along to the delete function, remove it from the database, and reload the page.
 - For the form, I would set up an event handler that accepts the value inputted and assigns it to the name of the column.
+```
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  //this key-value pair is listening to each text box in the form
+  setCurrentBook((prevState) => ({
+    ...prevState,
+    [name]: value,
+    //with the spread operator, we assign the user input value to each column
+  }));
+};
+```
 - If a user was creating a new entity, the values would start as empty strings. If the user was updating an entity, the values would be assigned the saved values from the database.
