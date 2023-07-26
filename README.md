@@ -10,8 +10,7 @@ Simple Library is a take home code assignment in a new language for me, PHP. The
 - There should be a simple-library.sql and simple-library.sqlite3 file
 - Run the command palette and search for Sqlite: Open Database and select simple-library.sqlite3
 - Open simple-library.sql and run the command palette and search for Sqlite: Run Selected Query to seed the database
-
-#### Unfortunately, I was unable to complete the assignment. Knowing Python, this is how I would go about completing the rest of the assignment.
+- Unfortunately, I was unable to complete the assignment. Knowing Python, the following is how I would go about completing the rest of the assignment.
 ## Next Steps (server-side):
 - I imported the book model file into the book view, but since I was using an SQL call, I was unsure where to incorporate the model. In Python, I would use Model.objects.get(pk=pk) which would retrieve the row whose primary key matched the query.
 - I returned a serializer to convert the response into readable JSON. In Python, this is where I would specify that the JSON data should be formatted into the book model.
